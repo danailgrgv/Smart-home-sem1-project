@@ -1,0 +1,26 @@
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Embedded Systems\Visual Studio\StudentHouse\StudentHouse\bin\Debug\StudentHouse.exe.config
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Embedded Systems\Visual Studio\StudentHouse\StudentHouse\bin\Debug\StudentHouse.exe
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Embedded Systems\Visual Studio\StudentHouse\StudentHouse\bin\Debug\StudentHouse.pdb
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Embedded Systems\Visual Studio\StudentHouse\StudentHouse\bin\Debug\Phidget22.NET.dll
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Embedded Systems\Visual Studio\StudentHouse\StudentHouse\bin\Debug\Phidget22.NET.pdb
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Embedded Systems\Visual Studio\StudentHouse\StudentHouse\bin\Debug\Phidget22.NET.xml
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Embedded Systems\Visual Studio\StudentHouse\StudentHouse\obj\Debug\StudentHouse.csprojAssemblyReference.cache
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Embedded Systems\Visual Studio\StudentHouse\StudentHouse\obj\Debug\StudentHouse.Properties.Resources.resources
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Embedded Systems\Visual Studio\StudentHouse\StudentHouse\obj\Debug\StudentHouse.csproj.GenerateResource.cache
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Embedded Systems\Visual Studio\StudentHouse\StudentHouse\obj\Debug\StudentHouse.csproj.CopyComplete
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Embedded Systems\Visual Studio\StudentHouse\StudentHouse\obj\Debug\StudentHouse.exe
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Embedded Systems\Visual Studio\StudentHouse\StudentHouse\obj\Debug\StudentHouse.pdb
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Embedded Systems\Visual Studio\StudentHouse\StudentHouse\obj\Debug\StudentHouse.Form1.resources
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\bin\Debug\StudentHouse.exe.config
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\bin\Debug\StudentHouse.exe
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\bin\Debug\StudentHouse.pdb
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\bin\Debug\Phidget22.NET.dll
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\bin\Debug\Phidget22.NET.pdb
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\bin\Debug\Phidget22.NET.xml
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.csprojAssemblyReference.cache
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.Properties.Resources.resources
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.csproj.GenerateResource.cache
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.csproj.CopyComplete
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.exe
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.pdb
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.DoorLockRFID.resources
