@@ -40,6 +40,7 @@
             this.spColorArduino = new System.IO.Ports.SerialPort(this.components);
             this.pbAlarm = new System.Windows.Forms.PictureBox();
             this.lbAlarm = new System.Windows.Forms.Label();
+            this.spSendTime = new System.IO.Ports.SerialPort(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbAlarm)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             this.cbComPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbComPort.FormattingEnabled = true;
             this.cbComPort.Location = new System.Drawing.Point(9, 32);
-            this.cbComPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbComPort.Margin = new System.Windows.Forms.Padding(2);
             this.cbComPort.Name = "cbComPort";
             this.cbComPort.Size = new System.Drawing.Size(152, 28);
             this.cbComPort.TabIndex = 10;
@@ -69,7 +70,7 @@
             this.lbTags.FormattingEnabled = true;
             this.lbTags.ItemHeight = 18;
             this.lbTags.Location = new System.Drawing.Point(216, 10);
-            this.lbTags.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbTags.Margin = new System.Windows.Forms.Padding(2);
             this.lbTags.Name = "lbTags";
             this.lbTags.Size = new System.Drawing.Size(175, 220);
             this.lbTags.TabIndex = 12;
@@ -106,7 +107,7 @@
             this.lbComms.FormattingEnabled = true;
             this.lbComms.ItemHeight = 16;
             this.lbComms.Location = new System.Drawing.Point(9, 104);
-            this.lbComms.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbComms.Margin = new System.Windows.Forms.Padding(2);
             this.lbComms.Name = "lbComms";
             this.lbComms.Size = new System.Drawing.Size(194, 132);
             this.lbComms.TabIndex = 15;
@@ -139,6 +140,10 @@
             this.lbAlarm.TabIndex = 17;
             this.lbAlarm.Text = "Alarm state";
             // 
+            // spSendTime
+            // 
+            this.spSendTime.PortName = "COM6";
+            // 
             // DoorLockRFID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,7 +157,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbTags);
             this.Controls.Add(this.cbComPort);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DoorLockRFID";
             this.Text = "Door Lock System";
             ((System.ComponentModel.ISupportInitialize)(this.pbAlarm)).EndInit();
@@ -174,6 +179,7 @@
         private System.IO.Ports.SerialPort spColorArduino;
         private System.Windows.Forms.PictureBox pbAlarm;
         private System.Windows.Forms.Label lbAlarm;
+        private System.IO.Ports.SerialPort spSendTime;
     }
 }
 

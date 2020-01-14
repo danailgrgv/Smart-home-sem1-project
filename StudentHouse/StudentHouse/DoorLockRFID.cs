@@ -31,6 +31,7 @@ namespace StudentHouse
 
 		private void InitializeRFID()
 		{
+            //spSendTime.Open();
             //spAlarmArduino.Open();
             RFID_Chip = new RFID();
             RFID_Chip.Tag += Rfid0_Tag;
@@ -128,7 +129,9 @@ namespace StudentHouse
 
 		private void TimerAlarm_Tick(object sender, EventArgs e)
         {
-            
+            String time = DateTime.Now.ToString("HH.mm");
+            spSendTime.WriteLine(time);
+
             if (spAlarmArduino.IsOpen)
             {
                 if (spAlarmArduino.BytesToRead > 0)
