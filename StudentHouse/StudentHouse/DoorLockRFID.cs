@@ -31,15 +31,16 @@ namespace StudentHouse
 
 		private void InitializeRFID()
 		{
+            //spAlarmArduino.Open();
             RFID_Chip = new RFID();
             RFID_Chip.Tag += Rfid0_Tag;
-            RFID_Chip.Open(5000);
+            RFID_Chip.Open(5000);    
 		}
 
 		private void Rfid0_Tag(object sender, RFIDTagEventArgs e)
         {
             // Only register events if the arduino serial port is connected
-            if (spArduino.IsOpen)
+            if (spRFIDArduino.IsOpen)
             {
                 // Make new virtual RFID tag with values obtained from the tag reader
                 RFIDTag newTag;
@@ -55,12 +56,12 @@ namespace StudentHouse
                         if (RFID_Taglist.Contains(newTag))
                         {
                             AddCommandToListBox("ACCESS GRANTED");
-                            spArduino.WriteLine("ALLOWED");
+                            spRFIDArduino.WriteLine("ALLOWED");
                         }
                         else
                         {
                             AddCommandToListBox("ACCESS DENIED");
-                            spArduino.WriteLine("DENIED");
+                            spRFIDArduino.WriteLine("DENIED");
                         }
                         break;
 
@@ -105,11 +106,11 @@ namespace StudentHouse
             // depending on the selected choice
             if (cbComPort.SelectedItem.ToString() != "None")
             {
-                if (spArduino.IsOpen == false)
+                if (spRFIDArduino.IsOpen == false)
                 {
                     // Open serial communication port
-                    spArduino.PortName = cbComPort.SelectedItem.ToString();
-                    spArduino.Open();
+                    spRFIDArduino.PortName = cbComPort.SelectedItem.ToString();
+                    spRFIDArduino.Open();
                     AddCommandToListBox("Serial connected");
 
                     // Enable serial monitoring timer
@@ -120,37 +121,55 @@ namespace StudentHouse
             {
                 // Close the serial connection and disable the serial monitoring timer
                 timerComms.Enabled = false;
-                spArduino.Close();
+                spRFIDArduino.Close();
                 AddCommandToListBox("Serial disconnected");
             }
         }
 
 		private void TimerAlarm_Tick(object sender, EventArgs e)
         {
-            // Read the current (existing) serial data
-            string command = spArduino.ReadExisting();
-            command.Trim();
-
-            if (String.IsNullOrEmpty(command) == false)
+            
+            if (spAlarmArduino.IsOpen)
             {
-                // If there are outstanding commands in the serial port, treat each command separately
-                foreach (string line in command.Replace("\r", "").Split('\n'))
+                if (spAlarmArduino.BytesToRead > 0)
                 {
-                    switch (line)
+                    if (spAlarmArduino.ReadLine().Contains("AlarmOn"))
                     {
-                        case "ADD_KEY":
-                            RFID_ReadState = RFID_ReadStates.ADD;
-                            break;
-
-                        case "REMOVE_KEY":
-                            RFID_ReadState = RFID_ReadStates.REMOVE;
-                            break;
+                        pbAlarm.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        pbAlarm.BackColor = Color.Green;
                     }
                 }
-
-                // If the command is not empty, log it for debugging purposes
-                AddCommandToListBox(command);
             }
+            if (spRFIDArduino.IsOpen)
+            {
+                // Read the current (existing) serial data
+                string command = spRFIDArduino.ReadExisting();
+                command.Trim();
+                if (String.IsNullOrEmpty(command) == false)
+                {
+                    // If there are outstanding commands in the serial port, treat each command separately
+                    foreach (string line in command.Replace("\r", "").Split('\n'))
+                    {
+                        switch (line)
+                        {
+                            case "ADD_KEY":
+                                RFID_ReadState = RFID_ReadStates.ADD;
+                                break;
+
+                            case "REMOVE_KEY":
+                                RFID_ReadState = RFID_ReadStates.REMOVE;
+                                break;
+                        }
+                    }
+
+                    // If the command is not empty, log it for debugging purposes
+                    AddCommandToListBox(command);
+                }
+            }
+            
         }
 
         private void AddCommandToListBox(string command)

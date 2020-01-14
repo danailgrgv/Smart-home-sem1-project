@@ -24,3 +24,16 @@ C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\Stu
 C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.exe
 C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.pdb
 C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.DoorLockRFID.resources
+C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\bin\Debug\StudentHouse.exe.config
+C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\bin\Debug\StudentHouse.exe
+C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\bin\Debug\StudentHouse.pdb
+C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\bin\Debug\Phidget22.NET.pdb
+C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\bin\Debug\Phidget22.NET.xml
+C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.csprojAssemblyReference.cache
+C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.DoorLockRFID.resources
+C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.Properties.Resources.resources
+C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.csproj.GenerateResource.cache
+C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.csproj.CopyComplete
+C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.exe
+C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.pdb
+C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\bin\Debug\Phidget22.NET.dll
