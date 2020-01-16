@@ -13,14 +13,14 @@ using Phidget22.Events;
 
 namespace StudentHouse
 {
-    public partial class DoorLockRFID : Form
+    public partial class Reception : Form
     {
 		private RFID RFID_Chip;
 		private readonly List<RFIDTag> RFID_Taglist;
         private enum RFID_ReadStates { DEFAULT, ADD, REMOVE };
         private RFID_ReadStates RFID_ReadState;
 
-        public DoorLockRFID()
+        public Reception()
         {
 			// Initialization of components
             InitializeComponent();
@@ -35,8 +35,8 @@ namespace StudentHouse
             //spAlarmArduino.Open();
             RFID_Chip = new RFID();
             RFID_Chip.Tag += Rfid0_Tag;
-            RFID_Chip.Open(5000);    
-		}
+            TryOpenRFIDChip();
+        }
 
 		private void Rfid0_Tag(object sender, RFIDTagEventArgs e)
         {
@@ -130,7 +130,7 @@ namespace StudentHouse
 		private void TimerAlarm_Tick(object sender, EventArgs e)
         {
             String time = DateTime.Now.ToString("HH.mm");
-            spSendTime.WriteLine(time);
+            //spSendTime.WriteLine(time);
 
             if (spAlarmArduino.IsOpen)
             {
@@ -172,7 +172,23 @@ namespace StudentHouse
                     AddCommandToListBox(command);
                 }
             }
-            
+
+            // If the RFID chip is still not connected, keep trying to open communication with it
+            if (!RFID_Chip.Attached)
+                TryOpenRFIDChip();
+
+        }
+
+        private void TryOpenRFIDChip()
+        {
+            try
+            {
+                RFID_Chip.Open();
+            }
+            catch (PhidgetException)
+            {
+
+            }
         }
 
         private void AddCommandToListBox(string command)

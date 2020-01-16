@@ -16,7 +16,7 @@ namespace StudentHouse
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DoorLockRFID());
+            Application.Run(new Reception());
         }
     }
 }

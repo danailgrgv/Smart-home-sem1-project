@@ -53,16 +53,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoorLockRFID.cs">
+    <Compile Include="Reception.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DoorLockRFID.Designer.cs">
-      <DependentUpon>DoorLockRFID.cs</DependentUpon>
+    <Compile Include="Reception.Designer.cs">
+      <DependentUpon>Reception.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DoorLockRFID.resx">
-      <DependentUpon>DoorLockRFID.cs</DependentUpon>
+    <Compile Include="Registrations.cs" />
+    <Compile Include="Room.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="StudentRegistration.cs" />
+    <EmbeddedResource Include="Reception.resx">
+      <DependentUpon>Reception.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
