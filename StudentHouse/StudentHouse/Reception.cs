@@ -84,27 +84,35 @@ namespace StudentHouse
                     spColorArduino.PortName = "COM3";
                     spColorArduino.Open();
                 }
+            }
+            catch (System.IO.IOException) { }
+            try
+            {
                 if (!spRFIDArduino.IsOpen)
                 {
-                    spRFIDArduino.PortName = "COM7";
+                    spRFIDArduino.PortName = "COM4";
                     spRFIDArduino.Open();
                 }
+            }
+            catch (System.IO.IOException) { }
+            try
+            {
                 if (!spAlarmArduino.IsOpen)
                 {
                     spAlarmArduino.PortName = "COM8";
                     spAlarmArduino.Open();
-                } 
+                }
+            }
+            catch (System.IO.IOException) { }
+            try
+            {
                 if (!spLightArduino.IsOpen)
                 {
                     spLightArduino.PortName = "COM10";
                     spLightArduino.Open();
                 }
-
             }
-            catch (System.IO.IOException)
-            {
-
-            }
+            catch (System.IO.IOException) { }
         }
 
 		private void Rfid0_Tag(object sender, RFIDTagEventArgs e)
