@@ -40,7 +40,25 @@
             this.lbAlarm = new System.Windows.Forms.Label();
             this.spLightArduino = new System.IO.Ports.SerialPort(this.components);
             this.lbFood = new System.Windows.Forms.ListBox();
+            this.tbFirstName = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbRFID = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbRoomNr = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbStudentNr = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbBirthday = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbLastName = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.lbRegistrations = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlarm)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timerComms
@@ -54,11 +72,11 @@
             this.lbTags.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTags.ForeColor = System.Drawing.SystemColors.Control;
             this.lbTags.FormattingEnabled = true;
-            this.lbTags.ItemHeight = 18;
-            this.lbTags.Location = new System.Drawing.Point(214, 36);
-            this.lbTags.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbTags.ItemHeight = 23;
+            this.lbTags.Location = new System.Drawing.Point(335, 432);
+            this.lbTags.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTags.Name = "lbTags";
-            this.lbTags.Size = new System.Drawing.Size(175, 238);
+            this.lbTags.Size = new System.Drawing.Size(140, 165);
             this.lbTags.TabIndex = 12;
             // 
             // label3
@@ -66,10 +84,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(9, 10);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(158, 405);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 20);
+            this.label3.Size = new System.Drawing.Size(128, 25);
             this.label3.TabIndex = 14;
             this.label3.Text = "Message List";
             // 
@@ -79,19 +96,20 @@
             this.lbComms.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbComms.ForeColor = System.Drawing.SystemColors.Control;
             this.lbComms.FormattingEnabled = true;
-            this.lbComms.ItemHeight = 16;
-            this.lbComms.Location = new System.Drawing.Point(9, 37);
-            this.lbComms.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbComms.ItemHeight = 20;
+            this.lbComms.Location = new System.Drawing.Point(163, 432);
+            this.lbComms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbComms.Name = "lbComms";
-            this.lbComms.Size = new System.Drawing.Size(194, 244);
+            this.lbComms.Size = new System.Drawing.Size(152, 164);
             this.lbComms.TabIndex = 15;
             // 
             // pbAlarm
             // 
             this.pbAlarm.BackColor = System.Drawing.Color.Green;
-            this.pbAlarm.Location = new System.Drawing.Point(428, 9);
+            this.pbAlarm.Location = new System.Drawing.Point(13, 443);
+            this.pbAlarm.Margin = new System.Windows.Forms.Padding(4);
             this.pbAlarm.Name = "pbAlarm";
-            this.pbAlarm.Size = new System.Drawing.Size(88, 84);
+            this.pbAlarm.Size = new System.Drawing.Size(117, 103);
             this.pbAlarm.TabIndex = 16;
             this.pbAlarm.TabStop = false;
             // 
@@ -100,9 +118,10 @@
             this.lbAlarm.AutoSize = true;
             this.lbAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAlarm.ForeColor = System.Drawing.Color.White;
-            this.lbAlarm.Location = new System.Drawing.Point(428, 104);
+            this.lbAlarm.Location = new System.Drawing.Point(14, 414);
+            this.lbAlarm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbAlarm.Name = "lbAlarm";
-            this.lbAlarm.Size = new System.Drawing.Size(90, 20);
+            this.lbAlarm.Size = new System.Drawing.Size(110, 25);
             this.lbAlarm.TabIndex = 17;
             this.lbAlarm.Text = "Alarm state";
             // 
@@ -112,29 +131,199 @@
             this.lbFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFood.ForeColor = System.Drawing.SystemColors.Control;
             this.lbFood.FormattingEnabled = true;
-            this.lbFood.ItemHeight = 16;
-            this.lbFood.Location = new System.Drawing.Point(579, 37);
-            this.lbFood.Margin = new System.Windows.Forms.Padding(2);
+            this.lbFood.ItemHeight = 20;
+            this.lbFood.Location = new System.Drawing.Point(714, 34);
+            this.lbFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbFood.Name = "lbFood";
-            this.lbFood.Size = new System.Drawing.Size(194, 244);
+            this.lbFood.Size = new System.Drawing.Size(257, 344);
             this.lbFood.TabIndex = 18;
+            // 
+            // tbFirstName
+            // 
+            this.tbFirstName.Location = new System.Drawing.Point(130, 21);
+            this.tbFirstName.Multiline = true;
+            this.tbFirstName.Name = "tbFirstName";
+            this.tbFirstName.Size = new System.Drawing.Size(201, 29);
+            this.tbFirstName.TabIndex = 19;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.tbRFID);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.tbRoomNr);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.tbStudentNr);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.tbBirthday);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.tbLastName);
+            this.groupBox1.Controls.Add(this.tbFirstName);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Location = new System.Drawing.Point(12, 26);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(347, 304);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Registration data";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 264);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 17);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "RFID tag";
+            // 
+            // tbRFID
+            // 
+            this.tbRFID.Location = new System.Drawing.Point(130, 261);
+            this.tbRFID.Multiline = true;
+            this.tbRFID.Name = "tbRFID";
+            this.tbRFID.Size = new System.Drawing.Size(201, 29);
+            this.tbRFID.TabIndex = 29;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(15, 216);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 17);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Room number";
+            // 
+            // tbRoomNr
+            // 
+            this.tbRoomNr.Location = new System.Drawing.Point(130, 213);
+            this.tbRoomNr.Multiline = true;
+            this.tbRoomNr.Name = "tbRoomNr";
+            this.tbRoomNr.Size = new System.Drawing.Size(201, 29);
+            this.tbRoomNr.TabIndex = 27;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 168);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 17);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Student number";
+            // 
+            // tbStudentNr
+            // 
+            this.tbStudentNr.Location = new System.Drawing.Point(130, 165);
+            this.tbStudentNr.Multiline = true;
+            this.tbStudentNr.Name = "tbStudentNr";
+            this.tbStudentNr.Size = new System.Drawing.Size(201, 29);
+            this.tbStudentNr.TabIndex = 25;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 120);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 17);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Birthday";
+            // 
+            // tbBirthday
+            // 
+            this.tbBirthday.Location = new System.Drawing.Point(130, 117);
+            this.tbBirthday.Multiline = true;
+            this.tbBirthday.Name = "tbBirthday";
+            this.tbBirthday.Size = new System.Drawing.Size(201, 29);
+            this.tbBirthday.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 17);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Last name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 17);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "First name";
+            // 
+            // tbLastName
+            // 
+            this.tbLastName.Location = new System.Drawing.Point(130, 69);
+            this.tbLastName.Multiline = true;
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Size = new System.Drawing.Size(201, 29);
+            this.tbLastName.TabIndex = 20;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(12, 336);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(347, 38);
+            this.btnAdd.TabIndex = 21;
+            this.btnAdd.Text = "ADD REGISTRATION";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            // 
+            // lbRegistrations
+            // 
+            this.lbRegistrations.FormattingEnabled = true;
+            this.lbRegistrations.ItemHeight = 16;
+            this.lbRegistrations.Location = new System.Drawing.Point(376, 34);
+            this.lbRegistrations.Name = "lbRegistrations";
+            this.lbRegistrations.Size = new System.Drawing.Size(332, 340);
+            this.lbRegistrations.TabIndex = 22;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.Control;
+            this.label8.Location = new System.Drawing.Point(376, 11);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(128, 17);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "List of registrations";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.Control;
+            this.label9.Location = new System.Drawing.Point(711, 11);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(77, 17);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Food items";
             // 
             // Reception
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(986, 314);
+            this.ClientSize = new System.Drawing.Size(988, 617);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lbRegistrations);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbFood);
             this.Controls.Add(this.lbAlarm);
             this.Controls.Add(this.pbAlarm);
             this.Controls.Add(this.lbComms);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbTags);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Reception";
             this.Text = "Student House Reception";
             ((System.ComponentModel.ISupportInitialize)(this.pbAlarm)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,6 +342,23 @@
         private System.Windows.Forms.Label lbAlarm;
         private System.IO.Ports.SerialPort spLightArduino;
         private System.Windows.Forms.ListBox lbFood;
+        private System.Windows.Forms.TextBox tbFirstName;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox tbLastName;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbStudentNr;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbBirthday;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbRFID;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbRoomNr;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ListBox lbRegistrations;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }
 

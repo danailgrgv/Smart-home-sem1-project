@@ -8,8 +8,8 @@ namespace StudentHouseReception
 {
     class StudentRegistration
     {
-        private Student student;
-        private List<Room> rooms;
+        private readonly Student student;
+        private readonly Room room = null;
         public string RfidTag
         {
             set
@@ -24,14 +24,14 @@ namespace StudentHouseReception
                 return RfidTag;
             }
         }
+
         public StudentRegistration(string rfid, Student student, Room room)
         {
             RfidTag = rfid;
             this.student = student;
-            this.rooms.Add(room);
+            this.room = room;
 
         }
-        // StudentRegistration registration = new StudentRegistration(rfid, student, room);
 
         private bool IsValidRfidTag(string rfid)
         {
@@ -41,16 +41,6 @@ namespace StudentHouseReception
             }
             else return true;
         }
-        String OpenDoor(Room room, string rfid)
-        {
-            if(rooms.Contains(room))
-            {
-                return "Granted";
-            }
-            else
-            {
-                return "Denied";
-            }
-        }
     }
+    // StudentRegistration registration = new StudentRegistration(rfid, student, room);
 }

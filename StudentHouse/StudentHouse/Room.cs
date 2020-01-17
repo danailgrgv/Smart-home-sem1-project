@@ -21,9 +21,22 @@ namespace StudentHouseReception
             }
             set
             {
-                RoomNumber = value;
+                if (IsValidRoomNumber(value))
+                {
+                    RoomNumber = value;
+                }
             }
         }
+
+        private bool IsValidRoomNumber(ulong number)
+        {
+            if (number >= 1 && number <= 150)
+            {
+                return false;
+            }
+            else return true;
+        }
+
         // Room room = new Room(123);
     }
 

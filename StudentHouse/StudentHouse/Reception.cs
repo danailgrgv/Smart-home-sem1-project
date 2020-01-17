@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Phidget22;
 using Phidget22.Events;
+using StudentHouseReception;
 
 namespace StudentHouse
 {
@@ -43,9 +44,17 @@ namespace StudentHouse
         private enum RFID_ReadStates { DEFAULT, ADD, REMOVE };
         private RFID_ReadStates RFID_ReadState;
 
+        readonly List<StudentRegistration> registrations = new List<StudentRegistration>();
+        private readonly List<Room> rooms = new List<Room>();
         public Reception()
         {
-			// Initialization of components
+            // Initialize hotel rooms
+            for (uint number = 1; number <= 150; number++)
+            {
+                rooms.Add(new Room(number));
+            }
+
+            // Initialization of components
             InitializeComponent();
 			InitializeRFID();
             TryOpenSerialPorts();
@@ -167,7 +176,37 @@ namespace StudentHouse
             RFID_ReadState = RFID_ReadStates.DEFAULT;
 		}
 
-		private void TimerAlarm_Tick(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            string firstName = tbFirstName.Text;
+            string lastName = tbLastName.Text;
+            string birthday = tbBirthday.Text;
+            string rfidTag = tbRFID.Text;
+            UInt32.TryParse(tbRoomNr.Text, out uint roomNr);
+            UInt64.TryParse(tbStudentNr.Text, out ulong studentNumber);
+            Room room = GetRoom(roomNr);
+
+            if (room != null)
+            {
+                Student student = new Student(firstName, lastName, birthday, studentNumber);
+                StudentRegistration stureg = new StudentRegistration(rfidTag, student, room);
+                registrations.Add(stureg);
+            }
+        }
+
+        private Room GetRoom(uint number)
+        {
+            foreach (Room room in rooms)
+            {
+                if (room.RoomNumber == number)
+                {
+                    return room;
+                }
+            }
+            return null;
+        }
+
+        private void TimerAlarm_Tick(object sender, EventArgs e)
         {
             if (spLightArduino.IsOpen)
             {

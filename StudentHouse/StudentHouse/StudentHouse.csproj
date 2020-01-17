@@ -61,7 +61,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registrations.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="StudentRegistration.cs" />
