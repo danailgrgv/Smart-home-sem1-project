@@ -15,8 +15,8 @@ namespace StudentHouse
 {
     public partial class Reception : Form
     {
-		private RFID RFID_Chip;
-		private readonly List<RFIDTag> RFID_Taglist;
+        private RFID RFID_Chip;
+        private readonly List<RFIDTag> RFID_Taglist;
         private enum RFID_ReadStates { DEFAULT, ADD, REMOVE };
         private RFID_ReadStates RFID_ReadState;
 
@@ -25,17 +25,62 @@ namespace StudentHouse
 			// Initialization of components
             InitializeComponent();
 			InitializeRFID();
+            TryOpenSerialPorts();
 			RFID_Taglist = new List<RFIDTag>();
             RFID_ReadState = RFID_ReadStates.DEFAULT;
+
+            // Enable serial monitoring timer
+            timerComms.Enabled = true;
         }
 
 		private void InitializeRFID()
 		{
-            //spSendTime.Open();
-            //spAlarmArduino.Open();
             RFID_Chip = new RFID();
             RFID_Chip.Tag += Rfid0_Tag;
             TryOpenRFIDChip();
+        }
+
+        private void TryOpenRFIDChip()
+        {
+            try
+            {
+                RFID_Chip.Open();
+            }
+            catch (PhidgetException)
+            {
+
+            }
+        }
+
+        private void TryOpenSerialPorts()
+        {
+            try
+            {
+                if (!spRFIDArduino.IsOpen)
+                {
+                    spRFIDArduino.PortName = "COM7";
+                    spRFIDArduino.Open();
+                }
+                if (!spAlarmArduino.IsOpen)
+                {
+                    spAlarmArduino.PortName = "COM8";
+                    spAlarmArduino.Open();
+                } 
+                if (!spLightArduino.IsOpen)
+                {
+                    spLightArduino.PortName = "COM10";
+                    spLightArduino.Open();
+                }
+                if (!spColorArduino.IsOpen)
+                {
+                    //spColorArduino.PortName = "COM4";
+                    //spColorArduino.Open();
+                }
+            }
+            catch (System.IO.IOException)
+            {
+
+            }
         }
 
 		private void Rfid0_Tag(object sender, RFIDTagEventArgs e)
@@ -90,47 +135,13 @@ namespace StudentHouse
             RFID_ReadState = RFID_ReadStates.DEFAULT;
 		}
 
-        private void CbComPort_DropDown(object sender, EventArgs e)
-        {
-			// Combo box with options for (dis)connecting the Arduino serial communication port
-			cbComPort.Items.Clear();
-			foreach (string port in SerialPort.GetPortNames())
-			{
-				cbComPort.Items.Add(port);
-			}
-			cbComPort.Items.Add("None");
-		}
-
-        private void CbComPort_SelectedValueChanged(object sender, EventArgs e)
-        {
-            //  Open or close the communication between the arduino and the application
-            // depending on the selected choice
-            if (cbComPort.SelectedItem.ToString() != "None")
-            {
-                if (spRFIDArduino.IsOpen == false)
-                {
-                    // Open serial communication port
-                    spRFIDArduino.PortName = cbComPort.SelectedItem.ToString();
-                    spRFIDArduino.Open();
-                    AddCommandToListBox("Serial connected");
-
-                    // Enable serial monitoring timer
-                    timerComms.Enabled = true;
-                }
-            }
-            else
-            {
-                // Close the serial connection and disable the serial monitoring timer
-                timerComms.Enabled = false;
-                spRFIDArduino.Close();
-                AddCommandToListBox("Serial disconnected");
-            }
-        }
-
 		private void TimerAlarm_Tick(object sender, EventArgs e)
         {
-            String time = DateTime.Now.ToString("HH.mm");
-            //spSendTime.WriteLine(time);
+            if (spLightArduino.IsOpen)
+            {
+                String time = DateTime.Now.ToString("HH.mm");
+                spLightArduino.WriteLine(time);
+            }
 
             if (spAlarmArduino.IsOpen)
             {
@@ -146,6 +157,7 @@ namespace StudentHouse
                     }
                 }
             }
+
             if (spRFIDArduino.IsOpen)
             {
                 // Read the current (existing) serial data
@@ -177,18 +189,8 @@ namespace StudentHouse
             if (!RFID_Chip.Attached)
                 TryOpenRFIDChip();
 
-        }
-
-        private void TryOpenRFIDChip()
-        {
-            try
-            {
-                RFID_Chip.Open();
-            }
-            catch (PhidgetException)
-            {
-
-            }
+            // If any of the comports are still not connected, keep trying to open communication with them
+            TryOpenSerialPorts();
         }
 
         private void AddCommandToListBox(string command)
