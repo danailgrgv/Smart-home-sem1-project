@@ -15,6 +15,29 @@ namespace StudentHouse
 {
     public partial class Reception : Form
     {
+
+        int white = 0;
+        int black = 0;
+        int orange = 0;
+        int yellow = 0;
+        int purple = 0;
+        int red = 0;
+        int green = 0;
+        int blue = 0;
+
+        void UpdateFood()
+        {
+            lbFood.Items.Clear();
+            lbFood.Items.Add($"Cartons of Milk:{white}");
+            lbFood.Items.Add($"Cola: {black}");
+            lbFood.Items.Add($"Oranges: {orange}");
+            lbFood.Items.Add($"Bananas: {yellow}");
+            lbFood.Items.Add($"Eggplants: {purple}");
+            lbFood.Items.Add($"Tomatoes: {red}");
+            lbFood.Items.Add($"Lettuce: {green}");
+            lbFood.Items.Add($"Blueberries: {blue}");
+        }
+
         private RFID RFID_Chip;
         private readonly List<RFIDTag> RFID_Taglist;
         private enum RFID_ReadStates { DEFAULT, ADD, REMOVE };
@@ -56,6 +79,11 @@ namespace StudentHouse
         {
             try
             {
+                if (!spColorArduino.IsOpen)
+                {
+                    spColorArduino.PortName = "COM3";
+                    spColorArduino.Open();
+                }
                 if (!spRFIDArduino.IsOpen)
                 {
                     spRFIDArduino.PortName = "COM7";
@@ -71,11 +99,7 @@ namespace StudentHouse
                     spLightArduino.PortName = "COM10";
                     spLightArduino.Open();
                 }
-                if (!spColorArduino.IsOpen)
-                {
-                    //spColorArduino.PortName = "COM4";
-                    //spColorArduino.Open();
-                }
+
             }
             catch (System.IO.IOException)
             {
@@ -142,6 +166,115 @@ namespace StudentHouse
                 String time = DateTime.Now.ToString("HH.mm");
                 spLightArduino.WriteLine(time);
             }
+
+            if (spColorArduino.IsOpen)
+            {
+                if (spColorArduino.BytesToRead > 0) 
+                {
+                    string line = spColorArduino.ReadLine().Trim();
+                    lbFood.Items.Add(line);
+                    line.Trim('\r');
+                    
+                    if (line.Contains("In"))
+                    {
+                        string[] secondLine = line.Split(',');
+                        string color = secondLine[1];
+                        switch (color)
+                        {
+                            case "WHITE":
+                                white++;
+                                break;
+                            case "BLACK":
+                                black++;
+                                break;
+                            case "ORANGE":
+                                orange++;
+                                break;
+                            case "YELLOW":
+                                yellow++;
+                                break;
+                            case "PURPLE":
+                                purple++;
+                                break;
+                            case "RED":
+                                red++;
+                                break;
+                            case "GREEN":
+                                green++;
+                                break;
+                            case "BLUE":
+                                blue++;
+                                break;
+                            default:
+                                MessageBox.Show("unknown color");
+                                break;
+                        }
+                        UpdateFood();
+                    }
+                    if (line.Contains("Out"))
+                    {
+                        string[] secondLine = line.Split(',');
+                        string color = secondLine[1];
+                        switch (color)
+                        {
+                            case "WHITE":
+                                if (white > 0)
+                                {
+                                    white--;
+                                }
+                                break;
+                            case "BLACK":
+                                if (black > 0)
+                                {
+                                    black--;
+                                }
+                                break;
+                            case "ORANGE":
+                                if (orange > 0)
+                                {
+                                    orange--;
+                                }
+                                break;
+                            case "YELLOW":
+                                if (yellow > 0)
+                                {
+                                    yellow--;
+                                }
+                                break;
+                            case "PURPLE":
+                                if (purple > 0)
+                                {
+                                    purple--;
+                                }
+                                break;
+                            case "RED":
+                                if (red > 0)
+                                {
+                                    red--;
+                                }
+                                break;
+                            case "GREEN":
+                                if (green > 0)
+                                {
+                                    green--;
+                                }
+                                break;
+                            case "BLUE":
+                                if (blue > 0)
+                                {
+                                    blue--;
+                                }
+                                break;
+                            default:
+                                MessageBox.Show("unknown color");
+                                break;
+                        }
+                        UpdateFood();
+                    }
+                    
+                }
+            }
+
 
             if (spAlarmArduino.IsOpen)
             {
