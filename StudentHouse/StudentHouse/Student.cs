@@ -8,100 +8,105 @@ namespace StudentHouseReception
 {
     class Student
     {
-        public Student(string surname, string lastname, string birthday, ulong studentNumber)
+        private string firstname;
+        private string lastname;
+        private string birthday;
+        private ulong studentnumber;
+
+        public Student(string firstname, string lastname, string birthday, ulong studentNumber)
         {
-            Surname = surname;
-            LastName = lastname;
-            Birthday = birthday;
-            StudentNumber = studentNumber;
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.birthday = birthday;
+            this.studentnumber = studentNumber;
         }
 
-        public string Surname
-        {
-            set
-            {
-                if (IsValidName(value))
-                {
-                    Surname = value;
-                }
-            }
-            get
-            {
-                return Surname;
-            }
-        }
+        //public string FirstName
+        //{
+        //    set
+        //    {
+        //       // if (IsValidName(value))
+        //        //{
+        //            FirstName = firstname;
+        //        //}
+        //    }
+        //    get
+        //    {
+        //        return firstname;
+        //    }
+        //}
 
-        public string LastName
-        {
-            set
-            {
-                if (IsValidName(value))
-                {
-                    LastName = value;
-                }
-            }
-            get
-            {
-                return LastName;
-            }
-        }
+        //public string LastName
+        //{
+        //    set
+        //    {
+        //        //if (IsValidName(value))
+        //        //{
+        //            lastname = value;
+        //        //}
+        //    }
+        //    get
+        //    {
+        //        return lastname;
+        //    }
+        //}
 
-        public string Birthday
-        {
-            set
-            {
-                if (IsValidBirthday(value))
-                {
-                    Birthday = value;
-                }
-            }
-            get
-            {
-                return Birthday;
-            }
-        }
+        //public string Birthday
+        //{
+        //    set
+        //    {
+        //        if (IsValidBirthday(value))
+        //        {
+        //            birthday = value;
+        //        }
+        //    }
+        //    get
+        //    {
+        //        return birthday;
+        //    }
+        //}
 
-        public ulong StudentNumber
-        {
-            set
-            {
-                if (IsValidStudentNumber(value))
-                {
-                    StudentNumber = value;
-                }
-            }
-            get
-            {
-                return StudentNumber;
-            }
-        }
+        //public ulong StudentNumber
+        //{
+        //    set
+        //    {
+        //        if (IsValidStudentNumber(value))
+        //        {
+        //            studentnumber = value;
+        //        }
+        //    }
+        //    get
+        //    {
+        //        return studentnumber;
+        //    }
+        //}
         
-        private bool IsValidName(string name)
-        {
-            if (name == "")
-            {
-                return false;
-            }
-            else return true;
-        }
+        //private bool IsValidName(string name)
+        //{
+        //    if (name == "")
+        //    {
+        //        return false;
+        //    }
+        //    else return true;
+        //}
 
-        private bool IsValidBirthday(string date)
-        {
-            if (date == "")
-            {
-                return false;
-            }
-            else return true;
-        }
+        //private bool IsValidBirthday(string date)
+        //{
+        //    if (date == "")
+        //    {
+        //        return false;
+        //    }
+        //    else return true;
+        //}
 
-        private bool IsValidStudentNumber(ulong number)
-        {
-            if (number<=0)
-            {
-                return false;
-            }
-            else return true;
-        }
+        //private bool IsValidStudentNumber(ulong number)
+        //{
+        //    if (number<=0)
+        //    {
+        //        return false;
+        //    }
+        //    else return true;
+        //}
 
         // Student student = new Student("Big","Chungus", "01012001", 123456789123);
     }

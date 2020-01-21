@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Phidget22;
 using Phidget22.Events;
 using StudentHouseReception;
+using Websocket;
 
 namespace StudentHouse
 {
@@ -38,6 +39,9 @@ namespace StudentHouse
             lbFood.Items.Add($"Lettuce: {green}");
             lbFood.Items.Add($"Blueberries: {blue}");
         }
+
+        public readonly WebSocket ws = new WebSocket();
+        public bool isConnected = false;
 
         private RFID RFID_Chip;
         private readonly List<RFIDTag> RFID_Taglist;
@@ -90,7 +94,7 @@ namespace StudentHouse
             {
                 if (!spColorArduino.IsOpen)
                 {
-                    spColorArduino.PortName = "COM3";
+                    spColorArduino.PortName = "COM9";
                     spColorArduino.Open();
                 }
             }
@@ -99,11 +103,12 @@ namespace StudentHouse
             {
                 if (!spRFIDArduino.IsOpen)
                 {
-                    spRFIDArduino.PortName = "COM4";
+                    spRFIDArduino.PortName = "COM10";
                     spRFIDArduino.Open();
                 }
             }
             catch (System.IO.IOException) { }
+            catch (UnauthorizedAccessException) { }
             try
             {
                 if (!spAlarmArduino.IsOpen)
@@ -117,7 +122,7 @@ namespace StudentHouse
             {
                 if (!spLightArduino.IsOpen)
                 {
-                    spLightArduino.PortName = "COM10";
+                    spLightArduino.PortName = "COM7";
                     spLightArduino.Open();
                 }
             }
@@ -157,7 +162,12 @@ namespace StudentHouse
                         if (!RFID_Taglist.Contains(newTag))
                         {
                             RFID_Taglist.Add(newTag);
-                            lbTags.Items.Add(newTag.TagString + " " + newTag.Protocol.ToString());
+                            lbTags.Items.Add(newTag.TagString);
+                            tbRFID.Text = newTag.TagString;
+                            if (isConnected)
+                            {
+                                ws.SendMsg(newTag.TagString); // Send tag via network
+                            }
                         }
                         break;
 
@@ -184,29 +194,38 @@ namespace StudentHouse
             string rfidTag = tbRFID.Text;
             UInt32.TryParse(tbRoomNr.Text, out uint roomNr);
             UInt64.TryParse(tbStudentNr.Text, out ulong studentNumber);
-            Room room = GetRoom(roomNr);
+            Room room = new Room(roomNr);
 
             if (room != null)
             {
                 Student student = new Student(firstName, lastName, birthday, studentNumber);
                 StudentRegistration stureg = new StudentRegistration(rfidTag, student, room);
                 registrations.Add(stureg);
+                lbRegistrations.Items.Add(firstName + " " + lastName + ", SN " +
+                    studentNumber.ToString() + ", Room " + roomNr.ToString() + " RFID " + rfidTag);
             }
+
+            tbFirstName.Text = "";
+            tbLastName.Text = "";
+            tbBirthday.Text = "";
+            tbRFID.Text = "";
+            tbRoomNr.Text = "";
+            tbStudentNr.Text = "";
         }
 
-        private Room GetRoom(uint number)
-        {
-            foreach (Room room in rooms)
-            {
-                if (room.RoomNumber == number)
-                {
-                    return room;
-                }
-            }
-            return null;
-        }
+        //private Room GetRoom(uint number)
+        //{
+        //    foreach (Room room in rooms)
+        //    {
+        //        if (room.RoomNumber == number)
+        //        {
+        //            return room;
+        //        }
+        //    }
+        //    return null;
+        //}
 
-        private void TimerAlarm_Tick(object sender, EventArgs e)
+        private void TimerComms_Tick(object sender, EventArgs e)
         {
             if (spLightArduino.IsOpen)
             {
@@ -371,6 +390,18 @@ namespace StudentHouse
 
             // If any of the comports are still not connected, keep trying to open communication with them
             TryOpenSerialPorts();
+
+            for (int i = 0; i < ws.messages.Count; i++)
+            {
+                lbConnect.Items.Add(ws.messages[i]);
+                //if (ws.messages[i].Contains("ORDER_"))
+                //{
+                //    AddOrder(ws.messages[i].Replace("ORDER_", ""));
+                //    ws.messages.RemoveAt(i);
+                //    i--;
+                //}
+            }
+            ws.messages.Clear();
         }
 
         private void AddCommandToListBox(string command)
@@ -379,6 +410,22 @@ namespace StudentHouse
             // Automatically scroll listbox to the bottom element
             lbComms.SelectedIndex = lbComms.Items.Count - 1;
             lbComms.SelectedIndex = -1;
+        }
+
+        private void BtnConnect_Click(object sender, EventArgs e)
+        {
+            Connect connectForm = new Connect(this);
+            connectForm.Show();
+        }
+
+        private void BtnAddKey_Click(object sender, EventArgs e)
+        {
+            RFID_ReadState = RFID_ReadStates.ADD;
+        }
+
+        private void BtnRemoveKey_Click(object sender, EventArgs e)
+        {
+            RFID_ReadState = RFID_ReadStates.REMOVE;
         }
     }
 }

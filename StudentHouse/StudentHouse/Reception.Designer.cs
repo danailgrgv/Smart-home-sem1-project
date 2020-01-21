@@ -57,6 +57,11 @@
             this.lbRegistrations = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.lbConnect = new System.Windows.Forms.ListBox();
+            this.btnAddKey = new System.Windows.Forms.Button();
+            this.btnRemoveKey = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlarm)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +69,7 @@
             // timerComms
             // 
             this.timerComms.Interval = 50;
-            this.timerComms.Tick += new System.EventHandler(this.TimerAlarm_Tick);
+            this.timerComms.Tick += new System.EventHandler(this.TimerComms_Tick);
             // 
             // lbTags
             // 
@@ -73,10 +78,10 @@
             this.lbTags.ForeColor = System.Drawing.SystemColors.Control;
             this.lbTags.FormattingEnabled = true;
             this.lbTags.ItemHeight = 23;
-            this.lbTags.Location = new System.Drawing.Point(335, 432);
+            this.lbTags.Location = new System.Drawing.Point(429, 431);
             this.lbTags.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTags.Name = "lbTags";
-            this.lbTags.Size = new System.Drawing.Size(140, 165);
+            this.lbTags.Size = new System.Drawing.Size(135, 165);
             this.lbTags.TabIndex = 12;
             // 
             // label3
@@ -100,7 +105,7 @@
             this.lbComms.Location = new System.Drawing.Point(163, 432);
             this.lbComms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbComms.Name = "lbComms";
-            this.lbComms.Size = new System.Drawing.Size(152, 164);
+            this.lbComms.Size = new System.Drawing.Size(235, 164);
             this.lbComms.TabIndex = 15;
             // 
             // pbAlarm
@@ -274,11 +279,13 @@
             // 
             // lbRegistrations
             // 
+            this.lbRegistrations.BackColor = System.Drawing.Color.DimGray;
+            this.lbRegistrations.ForeColor = System.Drawing.SystemColors.Control;
             this.lbRegistrations.FormattingEnabled = true;
             this.lbRegistrations.ItemHeight = 16;
             this.lbRegistrations.Location = new System.Drawing.Point(376, 34);
             this.lbRegistrations.Name = "lbRegistrations";
-            this.lbRegistrations.Size = new System.Drawing.Size(332, 340);
+            this.lbRegistrations.Size = new System.Drawing.Size(332, 324);
             this.lbRegistrations.TabIndex = 22;
             // 
             // label8
@@ -301,12 +308,70 @@
             this.label9.TabIndex = 24;
             this.label9.Text = "Food items";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.Control;
+            this.label10.Location = new System.Drawing.Point(424, 404);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(82, 25);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Tag List";
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConnect.Location = new System.Drawing.Point(581, 396);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(101, 43);
+            this.btnConnect.TabIndex = 26;
+            this.btnConnect.Text = "CONNECT";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.BtnConnect_Click);
+            // 
+            // lbConnect
+            // 
+            this.lbConnect.BackColor = System.Drawing.Color.DimGray;
+            this.lbConnect.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbConnect.FormattingEnabled = true;
+            this.lbConnect.ItemHeight = 16;
+            this.lbConnect.Location = new System.Drawing.Point(581, 448);
+            this.lbConnect.Name = "lbConnect";
+            this.lbConnect.Size = new System.Drawing.Size(207, 148);
+            this.lbConnect.TabIndex = 27;
+            // 
+            // btnAddKey
+            // 
+            this.btnAddKey.Location = new System.Drawing.Point(688, 396);
+            this.btnAddKey.Name = "btnAddKey";
+            this.btnAddKey.Size = new System.Drawing.Size(115, 42);
+            this.btnAddKey.TabIndex = 28;
+            this.btnAddKey.Text = "ADD KEY";
+            this.btnAddKey.UseVisualStyleBackColor = true;
+            this.btnAddKey.Click += new System.EventHandler(this.BtnAddKey_Click);
+            // 
+            // btnRemoveKey
+            // 
+            this.btnRemoveKey.Location = new System.Drawing.Point(809, 396);
+            this.btnRemoveKey.Name = "btnRemoveKey";
+            this.btnRemoveKey.Size = new System.Drawing.Size(129, 42);
+            this.btnRemoveKey.TabIndex = 29;
+            this.btnRemoveKey.Text = "REMOVE KEY";
+            this.btnRemoveKey.UseVisualStyleBackColor = true;
+            this.btnRemoveKey.Click += new System.EventHandler(this.BtnRemoveKey_Click);
+            // 
             // Reception
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(988, 617);
+            this.Controls.Add(this.btnRemoveKey);
+            this.Controls.Add(this.btnAddKey);
+            this.Controls.Add(this.lbConnect);
+            this.Controls.Add(this.btnConnect);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lbRegistrations);
@@ -359,6 +424,11 @@
         private System.Windows.Forms.ListBox lbRegistrations;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.ListBox lbConnect;
+        private System.Windows.Forms.Button btnAddKey;
+        private System.Windows.Forms.Button btnRemoveKey;
     }
 }
 

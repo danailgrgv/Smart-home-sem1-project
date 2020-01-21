@@ -37,3 +37,4 @@ C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\obj\Debug\
 C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\bin\Debug\Phidget22.NET.dll
 C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.Reception.resources
 C:\Users\kdw11\pct02-advanced-phase-project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.Reception.resources
+C:\Users\Razvan\Google Drive\Fontys\Semester 1\Advanced Project\StudentHouse\StudentHouse\obj\Debug\StudentHouse.Connect.resources

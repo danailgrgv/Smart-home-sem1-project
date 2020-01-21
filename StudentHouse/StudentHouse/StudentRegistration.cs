@@ -8,39 +8,41 @@ namespace StudentHouseReception
 {
     class StudentRegistration
     {
+        private string rfid;
         private readonly Student student;
         private readonly Room room = null;
-        public string RfidTag
-        {
-            set
-            {
-                if(IsValidRfidTag(value))
-                {
-                    RfidTag = value;
-                }
-            }
-            get
-            {
-                return RfidTag;
-            }
-        }
+
+        //public string RfidTag
+        //{
+        //    set
+        //    {
+        //        if(IsValidRfidTag(value))
+        //        {
+        //            RfidTag = value;
+        //        }
+        //    }
+        //    get
+        //    {
+        //        return RfidTag;
+        //    }
+        //}
 
         public StudentRegistration(string rfid, Student student, Room room)
         {
-            RfidTag = rfid;
+            this.rfid = rfid;
             this.student = student;
             this.room = room;
 
         }
 
-        private bool IsValidRfidTag(string rfid)
-        {
-            if (rfid == "")
-            {
-                return false;
-            }
-            else return true;
-        }
+        //private bool IsValidRfidTag(string rfid)
+        //{
+        //    if (rfid == "")
+        //    {
+        //        return false;
+        //    }
+        //    else return true;
+        //}
     }
     // StudentRegistration registration = new StudentRegistration(rfid, student, room);
 }

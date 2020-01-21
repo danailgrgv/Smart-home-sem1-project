@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Connect.Designer.cs">
+      <DependentUpon>Connect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reception.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,10 @@
     <Compile Include="Room.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="StudentRegistration.cs" />
+    <Compile Include="WebSocket.cs" />
+    <EmbeddedResource Include="Connect.resx">
+      <DependentUpon>Connect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reception.resx">
       <DependentUpon>Reception.cs</DependentUpon>
     </EmbeddedResource>
