@@ -1,0 +1,20 @@
+C:\Users\marti\Desktop\Programming\INO\light_system\Sendtime\Sendtime\bin\Debug\Sendtime.exe.config
+C:\Users\marti\Desktop\Programming\INO\light_system\Sendtime\Sendtime\bin\Debug\Sendtime.exe
+C:\Users\marti\Desktop\Programming\INO\light_system\Sendtime\Sendtime\bin\Debug\Sendtime.pdb
+C:\Users\marti\Desktop\Programming\INO\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.csprojAssemblyReference.cache
+C:\Users\marti\Desktop\Programming\INO\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.Form1.resources
+C:\Users\marti\Desktop\Programming\INO\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.Properties.Resources.resources
+C:\Users\marti\Desktop\Programming\INO\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.csproj.GenerateResource.cache
+C:\Users\marti\Desktop\Programming\INO\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\Programming\INO\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.exe
+C:\Users\marti\Desktop\Programming\INO\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.pdb
+C:\Users\marti\Desktop\Programming\INO\light system\light_system\Sendtime\Sendtime\bin\Debug\Sendtime.exe.config
+C:\Users\marti\Desktop\Programming\INO\light system\light_system\Sendtime\Sendtime\bin\Debug\Sendtime.exe
+C:\Users\marti\Desktop\Programming\INO\light system\light_system\Sendtime\Sendtime\bin\Debug\Sendtime.pdb
+C:\Users\marti\Desktop\Programming\INO\light system\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.csprojAssemblyReference.cache
+C:\Users\marti\Desktop\Programming\INO\light system\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.Form1.resources
+C:\Users\marti\Desktop\Programming\INO\light system\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.Properties.Resources.resources
+C:\Users\marti\Desktop\Programming\INO\light system\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.csproj.GenerateResource.cache
+C:\Users\marti\Desktop\Programming\INO\light system\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\Programming\INO\light system\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.exe
+C:\Users\marti\Desktop\Programming\INO\light system\light_system\Sendtime\Sendtime\obj\Debug\Sendtime.pdb
